@@ -1,11 +1,10 @@
 const express = require("express");
-// const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const { findById } = require("./models/thing");
 const Thing = require("./models/thing");
 // Utilisation de MongoDB
 mongoose.connect(
-	"mongodb+srv://Cours1:Dz0y8gBX4dZUcWcn@cluster0.7vmy1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+	"mongodb+srv://cours:Gqbvm06Zsy6WU8po@cluster0.7vmy1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	})
