@@ -3,7 +3,7 @@ const { findById } = require("./models/thing");
 const Thing = require("./models/thing");
 const stuffRoutes = require("./routes/stuff");
 const mongoose = require("mongoose");
-require("dotenv").config();
+const path = require("path");
 // Utilisation de MongoDB
 mongoose
 	.connect(process.env.MONGO_URL, {
@@ -28,10 +28,9 @@ app.use((req, res, next) => {
 	);
 	next();
 });
+app.use("/images", express.static(path.join(__dirname, "images")));
+const userRoutes = require("./routes/user");
+app.use("/api/stuff", stuffRoutes);
+app.use("/api/auth", userRoutes);
 
 module.exports = app;
-
-const userRoutes = require("./routes/user")
-app.use("/api/stuff", stuffRoutes)
-app.use("/api/auth", userRoutes)
-
